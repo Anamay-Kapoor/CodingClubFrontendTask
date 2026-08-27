@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang ='en'>
+
+
+<head>
+
+    <title>Aetheria Quantum System | Bookings</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+
+<style>
+/*body */
+ body
+    {
+        background-color: #182030;
+        color:  #ffffff;
+        font-family: 'Times New Roman', Times, serif;
+        margin: 0; /* Prevents unwanted white borders on the screen edge */
+    }
+
+    /*navigation*/
+    .NavigationBarType
+    {
+        background-color: #161930;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 5px solid turquoise;
+        z-index: 100;
+    }
+     .NavigationBarType img{transition: box-shadow 0.2s ease-in;
+    border-radius:5px;}
+    .NavigationBarType img:hover
+    {
+        cursor:pointer;
+        box-shadow: 0 1px 5px turquoise;
+    }
+
+    /* Creates 3 invisible columns of exactly equal width */
+    .nav-col {
+        flex: 1; 
+        display: flex;
+        align-items: center;
+    }
+
+    /* Column 1: Keeps logo fixed to the left edge */
+    .nav-left {
+        justify-content: flex-start;
+    }
+
+    /* Column 2: Locks the name into the dead center */
+    .nav-center {
+        justify-content: center;
+    }
+
+    /* Column 3: Pushes the navigation links to the far right edge */
+    .nav-right {
+        justify-content: flex-end;
+    }
+ 
+    .NavigationBarType .logo
+    {
+        color : turquoise;
+        text-decoration: none;
+        font-size: 35px;
+        font-weight: 250;
+        text-align: center;
+        transition: color 0.3s ease-in-out , text-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .NavigationBarType .logo:hover
+    {
+        color: white;
+        text-shadow:0 0 10px rgb(0, 217, 255);
+    }
+
+    .navig-links a {
+        color: #ffffff;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 16px;
+         transition: color 0.3s ease-in-out;
+         transition: box-shadow 0.2ss ease;
+    }
+
+    .navig-links a:hover {
+        color: #00f2fe;
+        
+    }
+    /*For keyframe animation + the class for blob and status*/
+    @keyframes pulse-blob{ 
+            0% { transform: scale(0.6); opacity: 0.4; }
+            
+            
+            50% { transform: scale(1.2); opacity: 1; }
+            
+            
+            100% { transform: scale(0.6); opacity: 0.4; }
+        } /*     \_('_')_/  pulse effect 7 animations dont work, 5 doesnt work, 3 looks good (for some reason) */
+    .blobanim{
+        height:10px;
+        width : 10px;
+        background-color: #00f2fe;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 10px;
+        animation : pulse-blob 1.2s infinite ease-in-out; /*this bezier curve works*/
+        box-shadow: 0 0 15px #00f2fe;
+    }
+    .blob
+    {
+        margin:10px; 
+        padding:10px 0px;
+        background-color:  #161930;
+        font-size: 20px;
+        margin-top:50px;
+        text-align: center;
+        border: 1px solid #000000;
+    }
+/*labels and border for form*/
+form {
+            background-color: #161930;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+label {
+            display: block;
+            margin-top: 15px;
+           
+            font-weight: bold;
+            font-size: 20px;
+            color: #a0aec0;
+            text-align:left;
+        }
+        
+/*Inputs area + buttons*/
+button
+{
+    font-size:20px;
+    margin-top:15px;
+     background-color: #0d0f1d;
+    border: 1px solid #2d3748;
+    color:white;
+    padding:10px 25px;
+}
+button:hover
+{
+    color:#00f2fe;
+}
+button:focus
+{
+    color:#0004ff;
+}
+.inputs
+{
+    text-align:center;
+}
+input:focus, select:focus {
+            outline: none;
+            border-color: #00f2fe;
+             
+        }
+input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="datetime-local"],
+        select {
+            width: 100%;
+            padding: 12px;
+            background-color: #0d0f1d;
+            border: 1px solid #2d3748;
+            color: #ffffff;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 15px;
+            margin: 2px;
+            
+
+        }
+input:focus{
+            
+            border-color: #00f2fe; /*works now -> highlighting input box*/
+        }
+        /*safetyfirststuff*/
+
+   
+
+    /*safety buttons*/
+    .checkbox-group {
+            margin-top: 10px;
+            background-color: #0d0f1d;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #2d3748;
+            text-align:left;
+        }
+        .checkbox-group label {
+            display:inline;
+            
+             margin-bottom: 10px;
+            font-weight: normal;
+            font-size: 20px;
+            color: #ffffff;
+        }
+        .checkbox-group a
+        
+        {   text-align: right;
+            color: #00f2fe;
+            text-decoration: none;
+            
+        }
+        .checkbox-group a:hover
+        {
+            text-shadow: 0 0 5px #00f1feb7;
+        }
+    
+/*For the queries page and tags + handles*/
+.QueriesHandles
+{
+    display:flex;
+    flex-wrap: wrap;
+    background-color: #0d0f1d;
+    gap:20px;
+    justify-content: space-evenly;
+    font-size:10px;
+    margin-top:2%;
+    
+}
+.Queries
+{
+background-color: #161930;
+        border: 1px solid #2d3748;
+        border-radius: 8px;
+        margin-top:2%;
+        width: 250px;
+        text-align: left;
+        padding:20px 25px;
+        
+}
+.Handles
+{
+    
+background-color: #161930;
+        border: 1px solid #2d3748;
+        border-radius: 8px;
+       margin-top:2%;
+        width: 250px;
+        text-align: left;
+        padding:20px 25px;
+}
+
+.handle:hover
+{
+    cursor:pointer;
+}
+.Handles a
+{
+text-decoration:none;
+color:white;
+transition : color 0.3s ease-in;
+}
+.handleT
+{
+    padding-left:10px;
+}
+.Twitter
+{
+    padding-left:5px;
+}
+.Handles a:hover{color:#00f2fe;
+cursor:pointer}
+.handle
+{
+   transition : color 0.3s ease-in;
+}
+.handle:hover{color:#00f2fe}
+</style>
+</head>
+<body>
+
+<nav class="NavigationBarType">
+    <!-- Left Column: Logo -->
+    <div class="nav-col nav-left">
+        <img src="logo.png" width="30" height="30" alt="Logo">
+    </div>
+
+    <!-- Center Column: Main Brand Name -->
+    <div class="nav-col nav-center">
+        <a href="index.html" class="logo" title="Go to Home Page">AETHERIA</a>
+    </div>
+
+    <!-- Right Column: Navigation Links -->
+    <div class="nav-col nav-right">
+        <div class="navig-links">
+            <a href="index.html" title="Home Page">Home</a>
+            <a href="terminals.html" title="Learn About Us">About Us</a>
+            <a href="book.html" title="Book your Next Jump">Bookings</a>
+        </div>
+    </div>
+</nav>
+
+<main class = "inputs">
+   <div class = "blob"><!---status pulse-->
+<span class="blobanim"></span>  Quantum Core Status : ONLINE
+   </div>
+   <h1>Quantum Jump Booking Details</h1>
+
+<form action="#" method ="post">
+    <label for="Name">Full Name</label>
+    <input type  ="text" id="Name" placeholder="Kael Cipher" required>
+
+    <label for = "Email">Email</label>
+    <input type = "text" id = "Email" placeholder="kaelcipher@quantumail.com" required>
+    <!--Selection of destination--> 
+    <label for="plan">Travel Plan Profile</label>
+            <select id="plan" required>
+                <option value="" disabled selected>Choose your travel configuration...</option>
+                <option value="single">Single Dispatch Fare</option>
+                <option value="family">Family Pack of 4(Save 15%)</option>
+                <option value="group">Friend Group Pack of 8 (Save 25%)</option>
+            </select>
+    <label type = "target"> Current Destination Core</label>
+ <select id="destination" required>
+    <option value="" disabled selected>Choose your current core vector...</option>
+    <option value="london">London Whitechapel Core Hub </option>
+     <option value="tokyo">Tokyo Kanto Aperture Core Hub </option>
+    <option value="ny">New York Hex Core Hub</option>
+    <option value="delhi">Shanghai Prime Dome Core Hub</option>
+    <option value="delhi">Guangzou Core Hub</option>
+    <option value="delhi">Cairo Core Hub</option>
+    <option value="delhi">Seoul Permafrost Shield Core Hub</option>
+    <option value="delhi">New Delhi Core Hub</option>
+    <option value="delhi">New Mexico City Core Hub</option>
+    
+    </select>
+    <label type = "target"> Target Destination</label>
+ <select id="destination" required>
+    <option value="" disabled selected>Choose a destination vector...</option>
+    <option value="london">London Whitechapel Core Hub </option>
+     <option value="tokyo">Tokyo Kanto Aperture Core Hub </option>
+    <option value="ny">New York Hex Core Hub</option>
+    <option value="delhi">Shanghai Prime Dome Core Hub</option>
+    <option value="delhi">Guangzou Core Hub</option>
+    <option value="delhi">Cairo Core Hub</option>
+    <option value="delhi">Seoul Permafrost Shield Core Hub</option>
+    <option value="delhi">New Delhi Core Hub</option>
+    <option value="delhi">New Mexico City Core Hub</option>
+</select>
+    <label for="time">Select Departure Date & Time</label>
+            <input type="datetime-local" id="departure" required>
+
+    <label for="weight">Baggage Net Weight Load in Kilograms (max = 500kg)*</label>
+            <input type="number" id="weight" placeholder="0" min="0" max="500" required>
+    <label>Transit Seating Class Profile</label>
+            <div class="checkbox-group">
+                <input type="radio" id="standard" name="tier" value="standard" checked>
+                <label for="standard">Standard </label>
+                
+                
+                <input type="radio" id="standard" name="tier" value="premium" checked>
+                <label for="standard">First-Class</label>
+                </div>
+                <label>Safety Declarations</label>
+            <div class="checkbox-group">
+                
+                <label for="terms"><input type="checkbox"required> I accept molecular state reconstruction terms <a href = "terminals.html">(read our terms and condtions)</a></label>
+               </div> 
+            <div class="checkbox-group">
+                <label for = "terms"><input type="checkbox" required>I acknowledege that all provided data is to the best of my knowledge.</label>
+                <!--Terms and conditions page -->
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+</form>
+
+<div class = "QueriesHandles">
+    <div class = "Queries">
+        <h1>For Queries , Contact:</h1>
+        <h2>📞+3279203283005</h2>
+        <h2>📞+3279203283006</h2>
+        <h2>📞+3279203283007</h2>
+        <h2>📞+3279203283008</h2>
+        
+        
+    </div>
+    <div class = "Handles">
+        <h1>Follow us for Updates:</h1>
+        <h2><a href="instagram" title="Check us out on Instagram">📷 <span class ="handle">Instagram</span></a></h2>
+        <h2> 𝕏<a href = "x.com" title="Check us out on Twitter" ><span class= "handleT">Twitter</span> </a></h2>
+        <h2>🌐<span class= "handle" title="Check us out on Matrix Space">   Matrix Space</span> </h2>
+
+
+
+    </div>
+</div>
+
+</main>
+
+</body>
+
+
+
+
+
+</html>
