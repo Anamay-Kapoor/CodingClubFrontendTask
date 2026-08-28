@@ -298,7 +298,22 @@ padding:50px;
   
   
 }
-
+/*full map*/
+.map-box
+{padding: 16px;
+display: grid;
+justify-content: center;
+}
+.map img
+{object-fit: cover; 
+    box-shadow: 0 0 5px #00f2fe;
+    overflow:hidden;
+    transition:transform 0.2s ease;
+}
+.map img:hover
+{
+    transform:scale(1.2)
+}
 
 /*adding an infinite scrolling image view*/
 .g_item:nth-child(1)
@@ -367,6 +382,7 @@ padding:50px;
     font-size:20px;
     padding:10px 15px;
 }
+
 
 </style>
 </head>
@@ -599,6 +615,12 @@ padding:50px;
     <img src="Shanghai.png" width="300" height="300" alt="Shanghai">
     <h3>Shanghai Prime</h3>
   </div>
+
+</div>
+<div class="map-box">
+    <div class="map">
+        <img src="mapcopy.png" alt="All our Core Hub">
+    </div>
 </div>
 <!--FAQ-->
 <div class = "FAQs">
