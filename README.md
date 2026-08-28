@@ -1,2 +1,2 @@
 # CodingClubFrontendTask
-Download all files in same folder
+Download all files in same folder from zip :)
