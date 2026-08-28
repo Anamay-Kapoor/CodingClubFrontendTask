@@ -13,6 +13,14 @@
         font-family: 'Times New Roman', Times, serif;
         margin: 0; /* Prevents unwanted white borders on the screen edge */
     }
+    /*finally adding scrollbar*/
+    html
+    {
+        scrollbar-width: thin;
+        scrollbar-color: #00f2fe #2d3748;
+        border-radius: 15px;
+    }
+    
 
     /*navigation*/
     .NavigationBarType
@@ -131,7 +139,7 @@ tbody tr:nth-child(even)
   interpolate-size: allow-keywords;
 }
 
-/*adding collapsable status attempt 5*/
+/*adding collapsable status attempt 3*/
 details::details-content {
   height: 0;
   overflow: hidden;
@@ -168,8 +176,8 @@ details summary:focus
     gap:20px;
     justify-content: space-evenly;
     font-size:10px;
-    margin-top:2%;
     
+    padding-bottom: 5%;
     
 }
 .Queries
@@ -180,8 +188,9 @@ background-color: #161930;
         margin-top:2%;
         width: 250px;
         text-align: left;
-        padding:30px;
-        
+        padding:20px 25px;
+        box-shadow:0 0 5px #00f2fe;
+        transition:box-shadow 0.2s ease , transform 0.3s ease-in;
 }
 .Handles
 {
@@ -192,9 +201,24 @@ background-color: #161930;
        margin-top:2%;
         width: 250px;
         text-align: left;
-        padding:30px;
-
+        padding:20px 25px;
+        box-shadow:0 0 5px #00f2fe;
+        transition:box-shadow 0.2s ease , transform 0.3s ease-in;
 }
+.Queries:hover
+{
+    box-shadow :0 0 5px #0004ff;
+    
+    
+    transform:scale(1.15);
+}
+.Handles:hover
+{
+    box-shadow :0 0 5px #0004ff;
+    transform:scale(1.15);
+    
+}
+
 .handle:hover
 {
     cursor:pointer;
@@ -602,6 +626,7 @@ padding:50px;
     Aetheria Systems is a triumph of human engineering, not a consumer entitlement.By booking with Aetheria, you are purchasing a privilege. Delays only occur to ensure your absolute protection. Refund requests will be permanently archived.Kindly do not load our esteemed customer service helpline with refund requests. Any and all attempts will suspend your access to this service for a set perioud of time.</div>
 </details>
 </div>
+
     <div class = "QueriesHandles">
     <div class = "Queries">
         <h1>For Queries , Contact:</h1>

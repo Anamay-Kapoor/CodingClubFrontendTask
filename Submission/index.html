@@ -6,6 +6,17 @@
 <link rel="icon" type="image/x-icon" href="logo.png">
 
 <style>
+    /* Color palette
+    #182030
+    #ffffff
+    turquoise
+    #00f2fe
+    #0004ff
+    #a0aec0
+    gray
+    #2d3748
+    lightgray
+    */
      body
     {
         background-color: #182030;
@@ -13,6 +24,14 @@
         font-family: 'Times New Roman', Times, serif;
         margin: 0; /* Prevents unwanted white borders on the screen edge */
     }
+    /*finally adding scrollbar*/
+    html
+    {
+        scrollbar-width: thin;
+        scrollbar-color: #00f2fe #2d3748;
+        border-radius: 15px;
+    }
+    
 
     /*navigation*/
     .NavigationBarType
@@ -126,7 +145,7 @@
     /*KEYWORDS & ANIMATIONS AND FLEX CARD */
     .highlight
     {
-        transition: color 0.05s cubic-bezier(0.39, 0.575, 0.565, 1);
+        transition: color 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
         color:white;
     }
     .flex-card:hover .highlight
@@ -206,7 +225,7 @@
         padding: 25px;
         width: 250px;
         text-align: left;
-        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease,box-shadow 0.3s ease-in-out; 
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease,box-shadow 0.3s ease-in-out,margin 0.3s ease; 
     }
     .flex-card:hover {
         transform: translateY(-10px);
@@ -221,6 +240,7 @@
     }
     .flex-card {color:gray; }
 
+    /*Queries and handles bottom area*/
 .QueriesHandles
 {
     display:flex;
@@ -229,7 +249,8 @@
     gap:20px;
     justify-content: space-evenly;
     font-size:10px;
-    margin-top: 2%;
+    
+    padding-bottom: 5%;
     
 }
 .Queries
@@ -241,7 +262,8 @@ background-color: #161930;
         width: 250px;
         text-align: left;
         padding:20px 25px;
-        
+        box-shadow:0 0 5px #00f2fe;
+        transition:box-shadow 0.2s ease , transform 0.3s ease-in;
 }
 .Handles
 {
@@ -253,6 +275,21 @@ background-color: #161930;
         width: 250px;
         text-align: left;
         padding:20px 25px;
+        box-shadow:0 0 5px #00f2fe;
+        transition:box-shadow 0.2s ease , transform 0.3s ease-in;
+}
+.Queries:hover
+{
+    box-shadow :0 0 5px #0004ff;
+    
+    
+    transform:scale(1.15);
+}
+.Handles:hover
+{
+    box-shadow :0 0 5px #0004ff;
+    transform:scale(1.15);
+    
 }
 
 .handle:hover
